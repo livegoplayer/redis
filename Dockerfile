@@ -1,14 +1,14 @@
 FROM redis:buster
 
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
-	echo "deb http://mirrors.aliyun.com/debian/ buster main non-free contrib \
-		  deb-src http://mirrors.aliyun.com/debian/ buster main non-free contrib \
-		  deb http://mirrors.aliyun.com/debian-security buster/updates main \
-		  deb-src http://mirrors.aliyun.com/debian-security buster/updates main \
-		  deb http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib \
-		  deb-src http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib \
-		  deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib \
-		  deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib \
+	echo "deb http://mirrors.163.com/debian/ buster main contrib non-free \
+		 # deb-src http://mirrors.163.com/debian/ buster main contrib non-free \
+		 deb http://mirrors.163.com/debian/ buster-updates main contrib non-free \
+         # deb-src http://mirrors.163.com/debian/ buster-updates main contrib non-free \
+         deb http://mirrors.163.com/debian/ buster-backports main contrib non-free \
+         # deb-src http://mirrors.163.com/debian/ buster-backports main contrib non-free \
+         deb http://mirrors.163.com/debian-security buster/updates main contrib non-free \
+         # deb-src http://mirrors.163.com/debian-security buster/updates main contrib non-free 
 	" > /etc/apt/sources.list
 
 RUN apt-get update
